@@ -13,5 +13,7 @@ namespace TankCleaningProject.Data
         }
 
         public DbSet<Company> Companies { get; set; }
+
+        public DbSet<Wash> Washes { get; set; }
     }
 }
