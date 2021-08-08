@@ -40,8 +40,8 @@ namespace TankCleaningProject.Infrastructure
 
             data.ProductTypes.AddRange(new[]
             {
-                new ProductType { Name = "Food", Price = 50.00M },
-                new ProductType { Name = "ADR" , Price = 60.00M}
+                new ProductType { Name = "Food", Price = 50.00 },
+                new ProductType { Name = "ADR" , Price = 60.00}
                 
             });
 

@@ -10,7 +10,7 @@ namespace TankCleaningProject.Data.Models
         [Required]
         public string Name { get; set; }
 
-        public decimal Price { get; set; } = 0.00M;
+        public double Price { get; set; } = 0.00;
 
         public IEnumerable<Wash> Washes { get; set; } = new List<Wash>();
     }

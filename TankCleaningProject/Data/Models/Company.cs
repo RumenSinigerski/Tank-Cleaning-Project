@@ -20,7 +20,7 @@ namespace TankCleaningProject.Data.Models
         public int Rating { get; set; } = 100;
 
         [Required]
-        public int UserId { get; set; }
+        public string UserId { get; set; }
         public IEnumerable<Wash> Washes { get; set; } = new List<Wash>();
 
     }

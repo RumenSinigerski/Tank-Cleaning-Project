@@ -38,7 +38,7 @@ namespace TankCleaningProject.Data
                 .Entity<Company>()
                 .HasOne<User>()
                 .WithOne()
-                .HasForeignKey<Company>(d => d.UserId)
+                .HasForeignKey<Company>(c => c.UserId)
                 .OnDelete(DeleteBehavior.Restrict);
 
             base.OnModelCreating(builder);
