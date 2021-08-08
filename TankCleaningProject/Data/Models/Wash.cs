@@ -7,6 +7,7 @@ namespace TankCleaningProject.Data.Models
     public class Wash
     {
         public int Id { get; init; }
+
         [MaxLength(RegistrationPlateMaxLenght)]
         public string RegistrationPlate { get; set; }
 
@@ -19,12 +20,12 @@ namespace TankCleaningProject.Data.Models
         [MaxLength(DriverNameMaxLenght)]
         public string DriverName { get; set; }
 
+        public int ProductTypeId { get; set; }
+
         [Required]
-        public string ProductType { get; set; }
+        public ProductType ProductType { get; set; }
 
         public bool IsWashed { get; set; }
-
-        public decimal Price { get; set; } = 0.00M;
 
         public int CompanyId { get; set; }
 

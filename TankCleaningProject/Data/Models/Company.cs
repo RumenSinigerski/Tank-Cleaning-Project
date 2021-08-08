@@ -18,6 +18,9 @@ namespace TankCleaningProject.Data.Models
         [MaxLength(CompanyPhoneNumberMaxLenght)]
         public string PhoneNumber { get; set; }       
         public int Rating { get; set; } = 100;
+
+        [Required]
+        public int UserId { get; set; }
         public IEnumerable<Wash> Washes { get; set; } = new List<Wash>();
 
     }
