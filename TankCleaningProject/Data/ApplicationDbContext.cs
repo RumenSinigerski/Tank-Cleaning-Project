@@ -10,6 +10,7 @@ namespace TankCleaningProject.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            //this.Database.EnsureCreated();
         }
 
         public DbSet<Company> Companies { get; set; }
@@ -17,7 +18,7 @@ namespace TankCleaningProject.Data
         public DbSet<Wash> Washes { get; set; }
 
         public DbSet<ProductType> ProductTypes { get; set; }
-
+      
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder

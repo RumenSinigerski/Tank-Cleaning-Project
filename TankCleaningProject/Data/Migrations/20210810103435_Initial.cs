@@ -6,27 +6,11 @@ namespace TankCleaningProject.Data.Migrations
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.RenameColumn(
-                name: "UserName",
-                table: "AspNetUsers",
-                newName: "Username");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "Username",
+            migrationBuilder.AddColumn<string>(
+                name: "Name",
                 table: "AspNetUsers",
                 type: "nvarchar(30)",
                 maxLength: 30,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(256)",
-                oldMaxLength: 256,
-                oldNullable: true);
-
-            migrationBuilder.AddColumn<string>(
-                name: "UserName",
-                table: "AspNetUsers",
-                type: "nvarchar(256)",
-                maxLength: 256,
                 nullable: true);
 
             migrationBuilder.CreateTable(
@@ -126,24 +110,8 @@ namespace TankCleaningProject.Data.Migrations
                 name: "ProductTypes");
 
             migrationBuilder.DropColumn(
-                name: "UserName",
+                name: "Name",
                 table: "AspNetUsers");
-
-            migrationBuilder.RenameColumn(
-                name: "Username",
-                table: "AspNetUsers",
-                newName: "UserName");
-
-            migrationBuilder.AlterColumn<string>(
-                name: "UserName",
-                table: "AspNetUsers",
-                type: "nvarchar(256)",
-                maxLength: 256,
-                nullable: true,
-                oldClrType: typeof(string),
-                oldType: "nvarchar(30)",
-                oldMaxLength: 30,
-                oldNullable: true);
         }
     }
 }

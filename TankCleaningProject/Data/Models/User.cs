@@ -6,8 +6,9 @@ using static TankCleaningProject.Data.DataConsts.User;
 namespace TankCleaningProject.Data.Models
 {
     public class User : IdentityUser
-    {
+    {       
+
         [MaxLength(FullNameMaxLength)]
-        public string Username { get; set; }
+        public string Name { get; set; }
     }
 }

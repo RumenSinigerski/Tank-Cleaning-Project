@@ -8,6 +8,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using TankCleaningProject.Data;
 using TankCleaningProject.Data.Models;
+using TankCleaningProject.Infrastructure;
 
 namespace TankCleaningProject
 {
@@ -45,6 +46,8 @@ namespace TankCleaningProject
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.PrepareDatabase();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

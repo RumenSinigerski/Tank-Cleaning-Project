@@ -24,6 +24,13 @@ namespace TankCleaningProject.Infrastructure
             return app;
         }
 
+        private static void MigrateDatabase(IServiceProvider services)
+        {
+            var data = services.GetRequiredService<ApplicationDbContext>();
+
+            data.Database.Migrate();
+        }
+
         //private static void SeedAdministrator(IServiceProvider services)
         //{
         //    throw new NotImplementedException();
@@ -48,11 +55,6 @@ namespace TankCleaningProject.Infrastructure
             data.SaveChanges();
         }
 
-        private static void MigrateDatabase(IServiceProvider services)
-        {
-            var data = services.GetRequiredService<ApplicationDbContext>();
-
-            data.Database.Migrate();
-        }
+       
     }
 }
