@@ -9,6 +9,7 @@ using Microsoft.Extensions.Hosting;
 using TankCleaningProject.Data;
 using TankCleaningProject.Data.Models;
 using TankCleaningProject.Infrastructure;
+using TankCleaningProject.Services;
 
 namespace TankCleaningProject
 {
@@ -41,6 +42,10 @@ namespace TankCleaningProject
             {
                 options.Filters.Add<AutoValidateAntiforgeryTokenAttribute>();
             });
+
+            services.AddTransient<WashService>();
+            services.AddTransient<UserService>();
+            services.AddTransient<CompanyService>();
 
         }
 

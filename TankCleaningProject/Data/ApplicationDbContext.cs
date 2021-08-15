@@ -10,7 +10,7 @@ namespace TankCleaningProject.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
-            //this.Database.EnsureCreated();
+            this.Database.EnsureCreated();
         }
 
         public DbSet<Company> Companies { get; set; }

@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using TankCleaningProject.Data.Models;
-
+using TankCleaningProject.Services;
 using static TankCleaningProject.Data.DataConsts.Company;
 
 namespace TankCleaningProject.Areas.Identity.Pages.Account
@@ -26,17 +26,19 @@ namespace TankCleaningProject.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
+        private readonly CompanyService companyService;
 
         public RegisterModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+            IEmailSender emailSender, CompanyService companyService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+            this.companyService = companyService;
         }
 
         [BindProperty]
@@ -89,6 +91,7 @@ namespace TankCleaningProject.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {
+                    this.companyService.Create(Input.Name, Input.Email, Input.PhoneNumber, user.Id);
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
