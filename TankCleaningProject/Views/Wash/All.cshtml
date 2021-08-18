@@ -1,0 +1,45 @@
+﻿@model List<WashFormModel>
+
+@{ ViewBag.Title = "Appointments by date"; }
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">        
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Registration Plate</th>
+                        <th scope="col">Drivers Phone Number</th>
+                        <th scope="col">Time of appointment</th>
+                        <th scope="col">Drivers Name</th>
+                        <th scope="col">Product Type</th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                   @for (int i = 0; i < Model.Count(); i++)
+                   {
+
+                   
+                    <tr>
+                        <th scope="row">@(i + 1)</th>
+                        <td>@Model[i].RegistrationPlate</td>
+                        <td>@Model[i].DriversPhoneNumber</td>
+                        <td>@Model[i].DateAndTime</td>
+                        <td>@Model[i].DriverName</td>
+                        
+                        <td>@Model[i].ProductTypes[0].Name</td>
+
+                        @if (DateTime.Parse(@Model[i].DateAndTime.ToString()) >= DateTime.Parse(DateTime.Now.ToString("dd.MM.yyyy hh:mm")))
+                        {
+
+                           <td><a asp-controller="Wash" asp-action="Edit" asp-route-id="@Model[i].Id" class="btn btn-primary ml-2">Edit</a></td>
+                        }
+
+                    </tr>
+                    }
+                </tbody>
+            </table>       
+    </div>
+</div>

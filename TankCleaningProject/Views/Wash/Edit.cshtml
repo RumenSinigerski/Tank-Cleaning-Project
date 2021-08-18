@@ -1,7 +1,6 @@
 ﻿@model WashFormModel
 
-@{ ViewBag.Title = "Appoint Wash"; }
-
+@{ ViewBag.Title = "Edit Appointment"; }
 
 <div class="row">
     <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
@@ -21,7 +20,7 @@
             <div class="form-group">
                 <label asp-for="DateAndTime">Date and Time</label>
                 <div class='input-group date' id='datepicker'>
-                    <input asp-for="DateAndTime" type="text" class="form-control" value="@DateTime.Now.ToString("dd.MM.yyyy hh:mm")" />
+                    <input asp-for="DateAndTime" type="text" class="form-control" />
                     <span class="input-group-addon">
                         <span class="glyphicon glyphicon-calendar"></span>
                     </span>
@@ -43,7 +42,7 @@
                 <span asp-validation-for="ProductTypeId" class="small text-danger"></span>
             </div>
 
-            <input asp-controller="Wash" asp-action="Add" class="btn btn-primary mt-3" type="submit" value="Appoint" />
+            <input asp-controller="Wash" asp-action="Edit" class="btn btn-primary mt-3" type="submit" value="Save" />
         </form>
     </div>
 </div>

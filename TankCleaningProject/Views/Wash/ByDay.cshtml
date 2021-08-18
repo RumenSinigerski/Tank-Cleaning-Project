@@ -1,0 +1,41 @@
+﻿@model AllAppointmentsQueryModel
+
+@{ ViewBag.Title = "Appointments"; }
+
+
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form method="post">
+
+            <div class="form-group">
+                <label asp-for="Date">Date</label>
+                <div class='input-group date' id='datepicker'>
+                    <input asp-for="Date" type="text" class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+            <input asp-controller="Wash" asp-action="ByDay" class="btn btn-primary mt-3" type="submit" value="Show" />
+        </form>
+    </div>
+</div>
+
+@section Scripts{
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.15.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/js/bootstrap-datetimepicker.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.7.14/css/bootstrap-datetimepicker.min.css">
+    <script>
+        $(function () {
+            $('#datepicker').datetimepicker({
+                defaultDate: new Date(),
+                format: 'DD.MM.YYYY'
+            });
+        });
+    </script>
+}
